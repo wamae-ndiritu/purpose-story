@@ -1,4 +1,5 @@
 import React from "react";
+import html2pdf from "html2pdf.js";
 
 const ViewAnswers = () => {
   // Dummy answers for testing
@@ -17,9 +18,42 @@ const ViewAnswers = () => {
       "I am currently working on projects such as..., collaborating with..., and dedicating my efforts to drive change. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. ",
   };
 
+  const downloadPDF = () => {
+    const element = document.getElementById("printable");
+
+    if (!element) {
+      console.error("Element not found");
+      return;
+    }
+
+    const printWindow = window.open("", "", "width=600,height=600");
+    printWindow.document.open();
+    printWindow.document.write(`
+    <html>
+      <head>
+        <title>My Purpose Story</title>
+        <style>
+          body { font-family: Arial, sans-serif; color: rgb(75 85 99); }
+          h2 {font-size: 14px, margin: 0, padding: 0; color: #000000;}
+          p {font-size: 14px, color: #000000; padding: 3px;}
+        </style>
+      </head>
+      <body>
+        ${element.innerHTML}
+      </body>
+    </html>
+  `);
+    printWindow.document.close();
+
+    printWindow.print();
+    printWindow.onafterprint = () => {
+      printWindow.close();
+    };
+  };
+
   return (
-    <div className='w-full flex justify-center py-12'>
-      <div className='mx-4 md:mx-0 md:w-3/5 bg-white p-4 md:p-8'>
+    <div className='w-full flex flex-col items-center gap-5 justify-center py-12'>
+      <div className='mx-4 md:mx-0 md:w-3/5 bg-white p-4 md:p-8' id='printable'>
         <h2 className='text-2xl md:text-3xl text-center font-bold mb-3 text-gray-700'>
           My Purpose Story
         </h2>
@@ -60,6 +94,12 @@ const ViewAnswers = () => {
           <p className='text-gray-600'>{answers.questionSix}</p>
         </div>
       </div>
+      <button
+        className='bg-green-500 text-white rounded px-4 py-1'
+        onClick={downloadPDF}
+      >
+        Download PDF
+      </button>
     </div>
   );
 };
