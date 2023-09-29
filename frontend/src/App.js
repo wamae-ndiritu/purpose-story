@@ -16,7 +16,7 @@ function App() {
   const path = location.pathname;
 
   function AuthLayout() {
-    if (true) {
+    if (userInfo.token) {
       return <Outlet />;
     }
     return <Navigate to='/account/login' />;

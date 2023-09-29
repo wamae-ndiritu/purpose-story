@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/actions/userActions";
 import Loading from "../utils/Loading";
@@ -6,6 +7,7 @@ import Message from "../utils/Message";
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const { loading, error, userInfo } = user;
 
@@ -23,10 +25,15 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email !== "" && password !== "") {
-      console.log("Valid credentials");
       dispatch(login({ email, password }));
     }
   };
+
+  useEffect(() => {
+    if (userInfo.token) {
+      navigate("/");
+    }
+  }, [userInfo]);
 
   return (
     <div
