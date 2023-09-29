@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Pagination from "./Pagination";
 import Loading from "../utils/Loading";
 import Message from "../utils/Message";
-import { createPurposeStory } from "../redux/actions/purposeActions";
+import {
+  createPurposeStory,
+  getPurposeStory,
+} from "../redux/actions/purposeActions";
 
 const QuestionOne = ({ page, totalPages, changePage }) => {
   const dispatch = useDispatch();
@@ -19,6 +22,16 @@ const QuestionOne = ({ page, totalPages, changePage }) => {
   const handleSave = () => {
     dispatch(createPurposeStory({ purpose: answer }));
   };
+
+  useEffect(() => {
+    dispatch(getPurposeStory());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (item) {
+      setAnswer(item.purpose);
+    }
+  }, [item]);
 
   return (
     <div className='flex flex-col md:flex-row md:items-start justify-center py-16 mb-20'>
