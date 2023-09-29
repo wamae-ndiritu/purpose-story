@@ -17,7 +17,7 @@ const QuestionFour = ({ page, totalPages, changePage }) => {
     <div className='flex flex-col md:flex-row md:items-start justify-center py-16'>
       {/* Question Side */}
       <div className='md:w-1/2 mb-6 md:mb-0 px-4'>
-        <h2 className='text-2xl md:text-3xl text-center md:text-left font-bold mb-4'>
+        <h2 className='text-2xl md:text-3xl font-bold mb-4'>
           Values and Beliefs
         </h2>
         <p className='text-gray-600'>

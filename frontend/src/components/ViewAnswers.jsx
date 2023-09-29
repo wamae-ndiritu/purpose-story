@@ -96,7 +96,7 @@ const ViewAnswers = () => {
           <p className='text-gray-600'>{answers.questionSix}</p>
         </div>
       </div>
-      <div className='md:w-3/5 flex justify-between'>
+      <div className='w-full px-4 md:px-0 md:w-3/5 flex justify-between'>
         <button
           className='bg-red-500 text-white rounded px-4 py-1'
           onClick={() => navigate("/questions/purpose")}

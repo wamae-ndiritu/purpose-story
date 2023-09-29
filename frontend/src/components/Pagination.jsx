@@ -8,6 +8,8 @@ const Pagination = ({ page, totalPages, changePage }) => {
     pages.push(i);
   }
 
+  console.log(page);
+
   return (
     <div className='flex items-center justify-center my-3 px-4'>
       <button
@@ -24,7 +26,7 @@ const Pagination = ({ page, totalPages, changePage }) => {
           key={item}
           onClick={() => changePage(item)}
           className={`bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-2 md:px-4 rounded md:mx-2 ml-2 md:ml-0 ${
-            page === item ? "bg-gray-300" : ""
+            page === item ? "bg-gray-200" : ""
           }`}
         >
           {item}
