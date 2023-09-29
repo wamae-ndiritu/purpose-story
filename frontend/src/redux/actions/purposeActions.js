@@ -33,7 +33,7 @@ export const createPurposeStory = (details) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.post(
-      `${API_ENDPOINT}/purpose-stroy/create`,
+      `${API_ENDPOINT}/purpose-story/create`,
       details,
       config
     );
@@ -137,7 +137,7 @@ export const deletePurposeStory = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.delete(
-      `${API_ENDPOINT}/purpose-clarity/${userInfo._id}`,
+      `${API_ENDPOINT}/purpose-story/${userInfo._id}`,
       config
     );
 

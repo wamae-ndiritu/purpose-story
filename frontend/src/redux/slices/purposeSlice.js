@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const purposeSlice = createSlice({
   name: "purposeStory",
   initialState: {
-    purposeStory: null,
+    item: null,
     loading: false,
     error: false,
     success: false,
@@ -16,7 +16,7 @@ export const purposeSlice = createSlice({
     },
     createPurposeStorySuccess: (state, action) => {
       state.loading = false;
-      state.purposeStory = action.payload;
+      state.item = action.payload;
       state.success = true;
     },
     createPurposeStoryFail: (state, action) => {
@@ -29,7 +29,7 @@ export const purposeSlice = createSlice({
     },
     getPurposeStorySuccess: (state, action) => {
       state.loading = false;
-      state.purposeStory = action.payload;
+      state.item = action.payload;
     },
     getPurposeStoryFail: (state, action) => {
       state.loading = false;
@@ -41,7 +41,7 @@ export const purposeSlice = createSlice({
     },
     updatePurposeStorySuccess: (state, action) => {
       state.loading = false;
-      state.purposeStory = action.payload;
+      state.item = action.payload;
     },
     updatePurposeStoryFail: (state, action) => {
       state.loading = false;
