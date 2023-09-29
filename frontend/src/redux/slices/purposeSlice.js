@@ -1,98 +1,79 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const purposeSlice = createSlice({
-  name: "purpose",
+  name: "purposeStory",
   initialState: {
-    item: null,
+    purposeStory: null,
     loading: false,
     error: false,
     success: false,
-    sent: false,
-    msg: null,
   },
   reducers: {
-    createItemStart: (state) => {
+    createPurposeStoryStart: (state) => {
       state.loading = true;
       state.error = false;
       state.success = false;
     },
-    createItemSuccess: (state, action) => {
+    createPurposeStorySuccess: (state, action) => {
       state.loading = false;
-      state.item = action.payload;
+      state.purposeStory = action.payload;
       state.success = true;
     },
-    createItemFail: (state, action) => {
+    createPurposeStoryFail: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
-    getItemStart: (state) => {
+    getPurposeStoryStart: (state) => {
       state.loading = true;
       state.error = false;
     },
-    getItemSuccess: (state, action) => {
+    getPurposeStorySuccess: (state, action) => {
       state.loading = false;
-      state.item = action.payload;
+      state.purposeStory = action.payload;
     },
-    getItemFail: (state, action) => {
+    getPurposeStoryFail: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
-    updateItemStart: (state) => {
+    updatePurposeStoryStart: (state) => {
       state.loading = true;
       state.error = false;
     },
-    updateItemSuccess: (state, action) => {
+    updatePurposeStorySuccess: (state, action) => {
       state.loading = false;
-      state.item = action.payload;
+      state.purposeStory = action.payload;
     },
-    updateItemFail: (state, action) => {
+    updatePurposeStoryFail: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
-    deleteItemStart: (state) => {
+    deletePurposeStoryStart: (state) => {
       state.loading = true;
       state.error = false;
-      state.success = false;
     },
-    deleteItemSuccess: (state, action) => {
+    deletePurposeStorySuccess: (state, action) => {
       state.loading = false;
       state.success = true;
     },
-    deleteItemFail: (state, action) => {
+    deletePurposeStoryFail: (state, action) => {
       state.loading = false;
       state.error = action.payload;
-    },
-    shareAnswersStart: (state) => {
-      state.loading = true;
-      state.sent = false;
-      state.msg = null;
-    },
-    shareAnswersSuccess: (state) => {
-      state.loading = false;
-      state.sent = true;
-    },
-    shareAnswersFail: (state, action) => {
-      state.loading = false;
-      state.msg = action.payload;
     },
   },
 });
 
 export const {
-  createItemStart,
-  createItemSuccess,
-  createItemFail,
-  getItemStart,
-  getItemSuccess,
-  getItemFail,
-  updateItemStart,
-  updateItemSuccess,
-  updateItemFail,
-  deleteItemStart,
-  deleteItemSuccess,
-  deleteItemFail,
-  shareAnswersStart,
-  shareAnswersSuccess,
-  shareAnswersFail,
+  createPurposeStoryStart,
+  createPurposeStorySuccess,
+  createPurposeStoryFail,
+  getPurposeStoryStart,
+  getPurposeStorySuccess,
+  getPurposeStoryFail,
+  updatePurposeStoryStart,
+  updatePurposeStorySuccess,
+  updatePurposeStoryFail,
+  deletePurposeStoryStart,
+  deletePurposeStorySuccess,
+  deletePurposeStoryFail,
 } = purposeSlice.actions;
 export default purposeSlice.reducer;
