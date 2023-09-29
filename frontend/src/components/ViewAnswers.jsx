@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import html2pdf from "html2pdf.js";
 
 const ViewAnswers = () => {
+  const navigate = useNavigate();
   // Dummy answers for testing
   const answers = {
     questionOne:
@@ -94,12 +96,20 @@ const ViewAnswers = () => {
           <p className='text-gray-600'>{answers.questionSix}</p>
         </div>
       </div>
-      <button
-        className='bg-green-500 text-white rounded px-4 py-1'
-        onClick={downloadPDF}
-      >
-        Download PDF
-      </button>
+      <div className='md:w-3/5 flex justify-between'>
+        <button
+          className='bg-red-500 text-white rounded px-4 py-1'
+          onClick={() => navigate("/question/response")}
+        >
+          Go Back to Form
+        </button>
+        <button
+          className='bg-green-500 text-white rounded px-4 py-1'
+          onClick={downloadPDF}
+        >
+          Download PDF
+        </button>
+      </div>
     </div>
   );
 };

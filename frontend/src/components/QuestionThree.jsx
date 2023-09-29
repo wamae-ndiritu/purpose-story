@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import Pagination from "./Pagination";
 
-const QuestionThree = () => {
+const QuestionThree = ({ page, totalPages, changePage }) => {
   const [vision, setVision] = useState("");
   const [mission, setMission] = useState("");
   const [impact, setImpact] = useState("");
@@ -18,7 +19,7 @@ const QuestionThree = () => {
   };
 
   return (
-    <div className='flex flex-col md:flex-row items-center justify-center md:items-start py-8 md:py-16'>
+    <div className='flex flex-col md:flex-row items-center justify-center md:items-start py-16'>
       {/* Question Side */}
       <div className='md:w-1/2 mb-6 md:mb-0 px-4'>
         <h2 className='text-2xl md:text-3xl text-center md:text-left font-bold mb-4'>
@@ -67,9 +68,11 @@ const QuestionThree = () => {
           placeholder='Describe the impact you aim to achieve...'
         ></textarea>
 
-        <button className='mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded'>
-          Submit
-        </button>
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          changePage={changePage}
+        />
       </div>
     </div>
   );

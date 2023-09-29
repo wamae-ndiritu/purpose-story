@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import Pagination from "./Pagination";
 
-const QuestionTwo = () => {
+const QuestionTwo = ({ page, totalPages, changePage }) => {
   const [answer, setAnswer] = useState("");
 
   const handleAnswerChange = (event) => {
@@ -8,7 +9,7 @@ const QuestionTwo = () => {
   };
 
   return (
-    <div className='flex flex-col md:flex-row items-center justify-center py-8 md:py-16'>
+    <div className='flex flex-col md:flex-row md:items-start justify-center py-16'>
       {/* Question Side */}
       <div className='md:w-1/2 mb-6 md:mb-0 px-4'>
         <h2 className='text-xl md:text-3xl text-center md:text-left font-bold mb-4'>
@@ -37,9 +38,11 @@ const QuestionTwo = () => {
           onChange={handleAnswerChange}
           placeholder='Share your story here...'
         ></textarea>
-        <button className='mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded'>
-          Submit
-        </button>
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          changePage={changePage}
+        />
       </div>
     </div>
   );

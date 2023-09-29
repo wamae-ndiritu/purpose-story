@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import Pagination from "./Pagination";
 
-const QuestionSix = () => {
+const QuestionSix = ({ page, totalPages, changePage }) => {
   const [actions, setActions] = useState("");
   const [examples, setExamples] = useState("");
   const [dedication, setDedication] = useState("");
@@ -18,7 +19,7 @@ const QuestionSix = () => {
   };
 
   return (
-    <div className='flex flex-col md:flex-row md:items-start justify-center py-8 md:py-16'>
+    <div className='flex flex-col md:flex-row md:items-start justify-center py-16'>
       {/* Question Side */}
       <div className='md:w-1/2 mb-6 md:mb-0 px-4'>
         <h2 className='text-2xl text-center md:text-left md:text-3xl font-bold mb-4'>
@@ -70,9 +71,11 @@ const QuestionSix = () => {
           placeholder='Describe your ongoing dedication and continuous efforts...'
         ></textarea>
 
-        <button className='mt-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded'>
-          Submit
-        </button>
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          changePage={changePage}
+        />
       </div>
     </div>
   );
