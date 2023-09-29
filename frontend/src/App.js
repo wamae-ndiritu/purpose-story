@@ -4,6 +4,7 @@ import { Routes, Route, Outlet, Navigate, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import { verifySession } from "./redux/actions/userActions";
 import Login from "./pages/Login";
+import "./index.css";
 
 function App() {
   const dispatch = useDispatch();
