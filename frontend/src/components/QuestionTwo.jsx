@@ -1,12 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Pagination from "./Pagination";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getPurposeStory,
+  updatePurposeStory,
+} from "../redux/actions/purposeActions";
+import Loading from "../utils/Loading";
+import Message from "../utils/Message";
 
 const QuestionTwo = ({ page, totalPages, changePage }) => {
+  const dispatch = useDispatch();
+  const purposeStory = useSelector((state) => state.purposeStory);
+  const { loading, error, item } = purposeStory;
   const [answer, setAnswer] = useState("");
 
   const handleAnswerChange = (event) => {
     setAnswer(event.target.value);
   };
+
+  const handleSave = () => {
+    dispatch(updatePurposeStory({ origin: answer }));
+  };
+
+  useEffect(() => {
+    dispatch(getPurposeStory());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (item) {
+      setAnswer(item.origin);
+    }
+  }, [item]);
 
   return (
     <div className='flex flex-col md:flex-row md:items-start justify-center py-16'>
@@ -33,7 +57,10 @@ const QuestionTwo = ({ page, totalPages, changePage }) => {
       <div className='md:w-1/2 px-4'>
         <div className='flex justify-between items-center mb-2'>
           <label className='block text-lg font-semibold'>Your Answer:</label>
-          <button className='bg-green-400 rounded text-white py-1 px-4'>
+          <button
+            className='bg-green-400 rounded text-white py-1 px-4'
+            onClick={handleSave}
+          >
             Save
           </button>
         </div>
@@ -43,6 +70,7 @@ const QuestionTwo = ({ page, totalPages, changePage }) => {
           onChange={handleAnswerChange}
           placeholder='Share your story here...'
         ></textarea>
+        {loading ? <Loading /> : error && <Message>{error}</Message>}
         <Pagination
           page={page}
           totalPages={totalPages}
