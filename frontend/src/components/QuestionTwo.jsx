@@ -31,7 +31,12 @@ const QuestionTwo = ({ page, totalPages, changePage }) => {
 
       {/* Form Side */}
       <div className='md:w-1/2 px-4'>
-        <label className='block text-lg font-semibold mb-2'>Your Answer:</label>
+        <div className='flex justify-between items-center mb-2'>
+          <label className='block text-lg font-semibold'>Your Answer:</label>
+          <button className='bg-green-400 rounded text-white py-1 px-4'>
+            Save
+          </button>
+        </div>
         <textarea
           className='w-full h-40 p-4 border border-gray-300 rounded focus:outline-none focus:border-blue-500'
           value={answer}
