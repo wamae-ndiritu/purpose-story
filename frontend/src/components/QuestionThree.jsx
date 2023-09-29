@@ -1,7 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Pagination from "./Pagination";
+import Loading from "../utils/Loading";
+import Message from "../utils/Message";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getPurposeStory,
+  updatePurposeStory,
+} from "../redux/actions/purposeActions";
 
 const QuestionThree = ({ page, totalPages, changePage }) => {
+  const dispatch = useDispatch();
+  const purposeStory = useSelector((state) => state.purposeStory);
+  const { loading, error, item } = purposeStory;
   const [vision, setVision] = useState("");
   const [mission, setMission] = useState("");
   const [impact, setImpact] = useState("");
@@ -17,6 +27,30 @@ const QuestionThree = ({ page, totalPages, changePage }) => {
   const handleImpactChange = (event) => {
     setImpact(event.target.value);
   };
+
+  const handleSave = () => {
+    dispatch(
+      updatePurposeStory({
+        vissionAndMission: {
+          vision,
+          mission,
+          impact,
+        },
+      })
+    );
+  };
+
+  useEffect(() => {
+    dispatch(getPurposeStory());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (item) {
+      setVision(item.vissionAndMission?.vision);
+      setMission(item.vissionAndMission?.mission);
+      setImpact(item.vissionAndMission?.impact);
+    }
+  }, [item]);
 
   return (
     <div className='flex flex-col md:flex-row md:items-center justify-center md:items-start py-16'>
@@ -42,7 +76,10 @@ const QuestionThree = ({ page, totalPages, changePage }) => {
       <div className='md:w-1/2 px-4'>
         <div className='flex justify-between items-center mb-2'>
           <label className='block text-lg font-semibold'>Your Vision:</label>
-          <button className='bg-green-400 rounded text-white py-1 px-4'>
+          <button
+            className='bg-green-400 rounded text-white py-1 px-4'
+            onClick={handleSave}
+          >
             Save
           </button>
         </div>
@@ -72,7 +109,7 @@ const QuestionThree = ({ page, totalPages, changePage }) => {
           onChange={handleImpactChange}
           placeholder='Describe the impact you aim to achieve...'
         ></textarea>
-
+        {loading ? <Loading /> : error && <Message>{error}</Message>}
         <Pagination
           page={page}
           totalPages={totalPages}

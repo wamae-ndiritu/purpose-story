@@ -1,7 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Pagination from "./Pagination";
+import {
+  getPurposeStory,
+  updatePurposeStory,
+} from "../redux/actions/purposeActions";
+import Loading from "../utils/Loading";
+import Message from "../utils/Message";
+import { useDispatch, useSelector } from "react-redux";
 
 const QuestionFive = ({ page, totalPages, changePage }) => {
+  const dispatch = useDispatch();
+  const purposeStory = useSelector((state) => state.purposeStory);
+  const { loading, error, item } = purposeStory;
   const [impact, setImpact] = useState("");
   const [beneficiaries, setBeneficiaries] = useState("");
 
@@ -12,6 +22,28 @@ const QuestionFive = ({ page, totalPages, changePage }) => {
   const handleBeneficiariesChange = (event) => {
     setBeneficiaries(event.target.value);
   };
+
+  const handleSave = () => {
+    dispatch(
+      updatePurposeStory({
+        impactAndBeneficiaries: {
+          impact,
+          beneficiaries,
+        },
+      })
+    );
+  };
+
+  useEffect(() => {
+    dispatch(getPurposeStory());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (item) {
+      setImpact(item.impactAndBeneficiaries?.impact);
+      setBeneficiaries(item.impactAndBeneficiaries?.beneficiaries);
+    }
+  }, [item]);
 
   return (
     <div className='flex flex-col md:flex-row md:items-start justify-center py-16 mb-4'>
@@ -40,7 +72,10 @@ const QuestionFive = ({ page, totalPages, changePage }) => {
           <label className='block text-lg font-semibold'>
             Impact Description:
           </label>
-          <button className='bg-green-400 rounded text-white py-1 px-4'>
+          <button
+            className='bg-green-400 rounded text-white py-1 px-4'
+            onClick={handleSave}
+          >
             Save
           </button>
         </div>
@@ -60,7 +95,7 @@ const QuestionFive = ({ page, totalPages, changePage }) => {
           onChange={handleBeneficiariesChange}
           placeholder='Identify the beneficiaries here...'
         ></textarea>
-
+        {loading ? <Loading /> : error && <Message>{error}</Message>}
         <Pagination
           page={page}
           totalPages={totalPages}

@@ -1,7 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Pagination from "./Pagination";
+import {
+  getPurposeStory,
+  updatePurposeStory,
+} from "../redux/actions/purposeActions";
+import { useDispatch, useSelector } from "react-redux";
+import Loading from "../utils/Loading";
+import Message from "../utils/Message";
 
 const QuestionSix = ({ page, totalPages, changePage }) => {
+  const dispatch = useDispatch();
+  const purposeStory = useSelector((state) => state.purposeStory);
+  const { loading, error, item } = purposeStory;
   const [actions, setActions] = useState("");
   const [examples, setExamples] = useState("");
   const [dedication, setDedication] = useState("");
@@ -17,6 +27,30 @@ const QuestionSix = ({ page, totalPages, changePage }) => {
   const handleDedicationChange = (event) => {
     setDedication(event.target.value);
   };
+
+  const handleSave = () => {
+    dispatch(
+      updatePurposeStory({
+        actionsAndCommitments: {
+          actions,
+          examples,
+          dedication,
+        },
+      })
+    );
+  };
+
+  useEffect(() => {
+    dispatch(getPurposeStory());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (item) {
+      setActions(item.actionsAndCommitments?.actions);
+      setExamples(item.actionsAndCommitments?.examples);
+      setDedication(item.actionsAndCommitments?.dedication);
+    }
+  }, [item]);
 
   return (
     <div className='flex flex-col md:flex-row md:items-start justify-center py-16'>
@@ -45,7 +79,10 @@ const QuestionSix = ({ page, totalPages, changePage }) => {
           <label className='block text-lg font-semibold'>
             Actions and Initiatives:
           </label>
-          <button className='bg-green-400 rounded text-white py-1 px-4'>
+          <button
+            className='bg-green-400 rounded text-white py-1 px-4'
+            onClick={handleSave}
+          >
             Save
           </button>
         </div>
@@ -75,7 +112,7 @@ const QuestionSix = ({ page, totalPages, changePage }) => {
           onChange={handleDedicationChange}
           placeholder='Describe your ongoing dedication and continuous efforts...'
         ></textarea>
-
+        {loading ? <Loading /> : error && <Message>{error}</Message>}
         <Pagination
           page={page}
           totalPages={totalPages}

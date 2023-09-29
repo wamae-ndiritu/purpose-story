@@ -1,7 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Pagination from "./Pagination";
+import {
+  getPurposeStory,
+  updatePurposeStory,
+} from "../redux/actions/purposeActions";
+import Loading from "../utils/Loading";
+import Message from "../utils/Message";
+import { useDispatch, useSelector } from "react-redux";
 
 const QuestionFour = ({ page, totalPages, changePage }) => {
+  const dispatch = useDispatch();
+  const purposeStory = useSelector((state) => state.purposeStory);
+  const { loading, error, item } = purposeStory;
   const [values, setValues] = useState("");
   const [beliefs, setBeliefs] = useState("");
 
@@ -12,6 +22,28 @@ const QuestionFour = ({ page, totalPages, changePage }) => {
   const handleBeliefsChange = (event) => {
     setBeliefs(event.target.value);
   };
+
+  const handleSave = () => {
+    dispatch(
+      updatePurposeStory({
+        valuesAndBeliefs: {
+          values,
+          beliefs,
+        },
+      })
+    );
+  };
+
+  useEffect(() => {
+    dispatch(getPurposeStory());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (item) {
+      setValues(item.valuesAndBeliefs?.values);
+      setBeliefs(item.valuesAndBeliefs?.beliefs);
+    }
+  }, [item]);
 
   return (
     <div className='flex flex-col md:flex-row md:items-start justify-center py-16'>
@@ -37,7 +69,10 @@ const QuestionFour = ({ page, totalPages, changePage }) => {
       <div className='md:w-1/2 px-4'>
         <div className='flex justify-between items-center mb-2'>
           <label className='block text-lg font-semibold'>Your Values:</label>
-          <button className='bg-green-400 rounded text-white py-1 px-4'>
+          <button
+            className='bg-green-400 rounded text-white py-1 px-4'
+            onClick={handleSave}
+          >
             Save
           </button>
         </div>
@@ -57,7 +92,7 @@ const QuestionFour = ({ page, totalPages, changePage }) => {
           onChange={handleBeliefsChange}
           placeholder='Enter your beliefs here...'
         ></textarea>
-
+        {loading ? <Loading /> : error && <Message>{error}</Message>}
         <Pagination
           page={page}
           totalPages={totalPages}

@@ -1,24 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import html2pdf from "html2pdf.js";
+import { getPurposeStory } from "../redux/actions/purposeActions";
+import { useDispatch, useSelector } from "react-redux";
+import Loading from "../utils/Loading";
+import Message from "../utils/Message";
 
 const ViewAnswers = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const purposeStory = useSelector((state) => state.purposeStory);
+  const { loading, error, item } = purposeStory;
   // Dummy answers for testing
   const answers = {
-    questionOne:
-      "Jelly sweet roll jelly beans biscuit pie macaroon chocolate donut. Carrot cake caramels pie sweet apple pie tiramisu carrot cake. Marzipan marshmallow croissant tootsie roll lollipop. Cupcake lemon drops bear claw gummies.",
-    questionTwo:
-      "I had a life-changing experience that inspired my purpose Jelly bear claw gummi bears lollipop cotton candy gummi bears chocolate bar cake cookie. Cupcake muffin danish muffin cookie gummies.",
+    questionOne: item?.purpose,
+    questionTwo: item?.origin,
     questionThree:
-      "My vision is to Jelly beans tiramisu pudding. Toffee soufflé chocolate cake pastry brownie. Oat cake halvah sweet roll cotton candy croissant lollipop. Macaroon tiramisu chocolate bar candy candy carrot cake jelly sweet. Gummies croissant macaroon dessert. Chocolate cake dragée pie.",
+      item?.vissionAndMission?.vision +
+      item?.vissionAndMission?.mission +
+      item?.vissionAndMission?.impact,
     questionFour:
-      "My core values include Next level tbh everyday carry, blog copper mug forage kitsch roof party pickled hammock kale chips tofu. Etsy shoreditch 8-bit microdosing, XOXO viral butcher banh mi humblebrag listicle woke bicycle rights brunch before they sold out ramps.",
+      item?.valuesAndBeliefs?.values + item?.valuesAndBeliefs?.beliefs,
     questionFive:
-      "I aim to create a positive impact by Twee shabby chic taiyaki flannel, enamel pin venmo vape four loko. Hexagon kale chips typewriter kitsch 8-bit organic plaid small batch keffiyeh ethical banh mi narwhal echo park cronut.",
+      item?.impactAndBeneficiaries?.impact +
+      item.impactAndBeneficiaries?.beneficiaries,
     questionSix:
-      "I am currently working on projects such as..., collaborating with..., and dedicating my efforts to drive change. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. ",
+      item?.actionsAndCommitments?.actions +
+      item?.actionsAndCommitments?.examples +
+      item?.actionsAndCommitments?.dedication,
   };
+
+  useEffect(() => {
+    dispatch(getPurposeStory());
+  }, [dispatch]);
 
   const downloadPDF = () => {
     const element = document.getElementById("printable");
@@ -59,6 +72,7 @@ const ViewAnswers = () => {
         <h2 className='text-2xl md:text-3xl text-center font-bold mb-3 text-gray-700'>
           My Purpose Story
         </h2>
+        {loading ? <Loading /> : error && <Message>{error}</Message>}
         <div className='mb-4'>
           <h2 className='text-xl md:text-2xl font-semibold text-gray-700 mb-2'>
             Purpose Statement
