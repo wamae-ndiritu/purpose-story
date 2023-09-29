@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -13,7 +14,7 @@ const Hero = () => {
           purpose and inspire others.
         </p>
         <button className='bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded'>
-          Get Started
+          <Link to='/questions/purpose'>Get Started</Link>
         </button>
       </div>
 

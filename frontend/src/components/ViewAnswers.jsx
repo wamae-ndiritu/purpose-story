@@ -99,7 +99,7 @@ const ViewAnswers = () => {
       <div className='md:w-3/5 flex justify-between'>
         <button
           className='bg-red-500 text-white rounded px-4 py-1'
-          onClick={() => navigate("/question/response")}
+          onClick={() => navigate("/questions/purpose")}
         >
           Go Back to Form
         </button>

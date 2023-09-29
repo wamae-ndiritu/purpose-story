@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
               href='#'
               className='text-sm hover:text-gray-400 transition duration-300'
             >
-              Get Started
+              <Link to='/questions/purpose'>Get Started</Link>
             </a>
           </li>
           <li>

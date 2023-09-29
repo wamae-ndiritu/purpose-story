@@ -1,15 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div className='sticky z-20 top-0 w-full bg-gray-800 text-white flex md:flex-row items-center justify-between px-3 py-2'>
       <h5 className='md:text-2xl uppercase font-bold text-green-500'>
-        My Purpose Story
+        <Link to='/'>My Purpose Story</Link>
       </h5>
       <div className='flex md:flex-row md:items-center gap-3'>
         <ul className='d-none md:flex md:items-center gap-3 mr-10 p-0 m-0'>
           <li className='text-lg hover:underline hover:cursor-pointer text-gray-500'>
-            Get Started
+            <Link to='/questions/purpose'>Get Started</Link>
           </li>
           <li className='text-lg hover:underline hover:cursor-pointer text-gray-500'>
             Purpose Clarification Tool
