@@ -39,7 +39,7 @@ const HowItWorksSection = () => {
     <div className='py-16 bg-gray-100'>
       <div className='container mx-auto'>
         <h2 className='text-4xl font-bold text-center mb-8'>How It Works</h2>
-        <div className='grid grid-cols-3 gap-8'>
+        <div className='grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8'>
           {steps.map((step) => (
             <div key={step.id} className='text-center'>
               <div className='rounded-full bg-blue-500 text-white text-4xl w-16 h-16 flex items-center justify-center mx-auto mb-4'>

@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className='w-full bg-gray-800 text-white flex md:flex-row items-center justify-between px-3 py-2'>
+    <div className='sticky z-20 top-0 w-full bg-gray-800 text-white flex md:flex-row items-center justify-between px-3 py-2'>
       <h5 className='md:text-2xl uppercase font-bold text-green-500'>
         My Purpose Story
       </h5>
