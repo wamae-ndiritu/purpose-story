@@ -6,6 +6,7 @@ import { verifySession } from "./redux/actions/userActions";
 import Login from "./pages/Login";
 import "./index.css";
 import PurposeQuestion from "./pages/PurposeQuestion";
+import Answers from "./pages/Answers";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function App() {
       <Route element={<AuthLayout />}>
         <Route exact path='/' element={<Home />} />
         <Route exact path='/questions/purpose' element={<PurposeQuestion />} />
+        <Route exact path='/questions/answers' element={<Answers />} />
       </Route>
     </Routes>
   );
