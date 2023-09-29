@@ -1,10 +1,12 @@
 import React from "react";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
 
 const Home = () => {
   return (
-    <div className='bg-gray-800 p-4'>
-      <h2 className='text-2xl text-gray-600 font-bold'>Purpose Statement</h2>
-      {/* Content for Purpose Statement */}
+    <div>
+      <Navbar />
+      <Hero />
     </div>
   );
 };
