@@ -38,14 +38,17 @@ export const purposeSlice = createSlice({
     updatePurposeStoryStart: (state) => {
       state.loading = true;
       state.error = false;
+      state.success = false;
     },
     updatePurposeStorySuccess: (state, action) => {
       state.loading = false;
       state.item = action.payload;
+      state.success = true;
     },
     updatePurposeStoryFail: (state, action) => {
       state.loading = false;
       state.error = action.payload;
+      state.success = false;
     },
     deletePurposeStoryStart: (state) => {
       state.loading = true;

@@ -6,6 +6,7 @@ import Message from "../utils/Message";
 import {
   createPurposeStory,
   getPurposeStory,
+  updatePurposeStory,
 } from "../redux/actions/purposeActions";
 
 const QuestionOne = ({ page, totalPages, changePage }) => {
@@ -20,7 +21,11 @@ const QuestionOne = ({ page, totalPages, changePage }) => {
   };
 
   const handleSave = () => {
-    dispatch(createPurposeStory({ purpose: answer }));
+    if (item) {
+      dispatch(updatePurposeStory({ purpose: answer }));
+    } else {
+      dispatch(createPurposeStory({ purpose: answer }));
+    }
   };
 
   useEffect(() => {
@@ -43,7 +48,7 @@ const QuestionOne = ({ page, totalPages, changePage }) => {
         <p>Here just state your purpose.</p>
         <p>
           If you don’t have a concise purpose statement, use the{" "}
-          <a href='#' className='text-sm text-purple-800'>
+          <a href='/#' className='text-sm text-purple-800'>
             Purpose Clarification Tool
           </a>{" "}
           to craft one.

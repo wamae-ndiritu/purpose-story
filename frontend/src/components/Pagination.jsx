@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Pagination = ({ page, totalPages, changePage }) => {
@@ -7,8 +7,6 @@ const Pagination = ({ page, totalPages, changePage }) => {
   for (let i = 1; i <= totalPages; i++) {
     pages.push(i);
   }
-
-  console.log(page);
 
   return (
     <div className='flex items-center justify-center my-3 px-4'>
