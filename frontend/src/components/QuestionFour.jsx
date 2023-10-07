@@ -77,7 +77,7 @@ const QuestionFour = ({ page, totalPages, changePage }) => {
           </button>
         </div>
         <textarea
-          className='w-full h-20 p-4 border border-gray-300 rounded mb-3 focus:outline-none focus:border-blue-500'
+          className='w-full h-15 p-4 border border-gray-300 rounded mb-3 focus:outline-none focus:border-blue-500'
           value={values}
           onChange={handleValuesChange}
           placeholder='Enter your values here...'
@@ -87,7 +87,7 @@ const QuestionFour = ({ page, totalPages, changePage }) => {
           Your Beliefs:
         </label>
         <textarea
-          className='w-full h-20 p-4 border border-gray-300 rounded mb-3 focus:outline-none focus:border-blue-500'
+          className='w-full h-15 p-4 border border-gray-300 rounded mb-3 focus:outline-none focus:border-blue-500'
           value={beliefs}
           onChange={handleBeliefsChange}
           placeholder='Enter your beliefs here...'

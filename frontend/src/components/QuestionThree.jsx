@@ -53,7 +53,7 @@ const QuestionThree = ({ page, totalPages, changePage }) => {
   }, [item]);
 
   return (
-    <div className='flex flex-col md:flex-row md:items-center justify-center md:items-start py-16'>
+    <div className='flex flex-col md:flex-row md:justify-center py-16'>
       {/* Question Side */}
       <div className='md:w-1/2 mb-6 md:mb-0 px-4'>
         <h2 className='text-2xl md:text-3xl font-bold mb-4'>
@@ -84,7 +84,7 @@ const QuestionThree = ({ page, totalPages, changePage }) => {
           </button>
         </div>
         <textarea
-          className='w-full h-10 px-4 py-1 border border-gray-300 rounded mb-3 focus:outline-none focus:border-blue-500'
+          className='w-full h-15 p-4 py-1 border border-gray-300 rounded mb-3 focus:outline-none focus:border-blue-500'
           value={vision}
           onChange={handleVisionChange}
           placeholder='Enter your vision here...'
@@ -104,7 +104,7 @@ const QuestionThree = ({ page, totalPages, changePage }) => {
           Intended Impact:
         </label>
         <textarea
-          className='w-full h-20 p-4 border border-gray-300 rounded mb-3 focus:outline-none focus:border-blue-500'
+          className='w-full h-15 p-4 border border-gray-300 rounded mb-3 focus:outline-none focus:border-blue-500'
           value={impact}
           onChange={handleImpactChange}
           placeholder='Describe the impact you aim to achieve...'
