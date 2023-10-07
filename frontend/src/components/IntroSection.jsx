@@ -17,8 +17,12 @@ const IntroSection = () => {
         </p>
         <p className='text-lg mb-8'>
           If you haven’t fully developed your purpose and purpose statement, My
-          Purpose Story can guide you through the Purpose Clarification Tool,
-          setting you on the path to a more meaningful and purposeful existence.
+          Purpose Story can guide you through the{" "}
+          <a href='#' className='text-purple-500'>
+            Purpose Clarification Tool
+          </a>
+          , setting you on the path to a more meaningful and purposeful
+          existence.
         </p>
         <Link
           to='/questions/purpose'

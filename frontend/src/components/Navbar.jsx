@@ -1,10 +1,13 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../redux/actions/userActions";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.user);
+  const { userInfo } = user;
   const handleLogout = () => {
     dispatch(logout());
   };
@@ -23,7 +26,7 @@ const Navbar = () => {
           </li>
         </ul>
         <div className='flex flex-col items-center'>
-          <p className='text-sm text-gray-500'>Wamae Ndiritu</p>
+          <p className='text-sm text-gray-500'>{userInfo?.fullName}</p>
           <button
             className='bg-red-300 rounded px-3 text-white text-sm'
             onClick={handleLogout}
