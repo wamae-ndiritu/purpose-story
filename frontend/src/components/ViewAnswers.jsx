@@ -74,39 +74,39 @@ const ViewAnswers = () => {
         </h2>
         {loading ? <Loading /> : error && <Message>{error}</Message>}
         <div className='mb-4'>
-          <h2 className='text-xl md:text-2xl font-semibold text-gray-700 mb-2'>
+          {/* <h2 className='text-xl md:text-2xl font-semibold text-gray-700 mb-2'>
             Purpose Statement
-          </h2>
+          </h2> */}
           <p className='text-gray-600'>{answers.questionOne}</p>
         </div>
         <div className='mb-4'>
-          <h2 className='text-xl md:text-2xl font-semibold text-gray-700 mb-2'>
+          {/* <h2 className='text-xl md:text-2xl font-semibold text-gray-700 mb-2'>
             Origin and Personal Connection
-          </h2>
+          </h2> */}
           <p className='text-gray-600'>{answers.questionTwo}</p>
         </div>
         <div className='mb-4'>
-          <h2 className='text-xl md:text-2xl font-semibold text-gray-700 mb-2'>
+          {/* <h2 className='text-xl md:text-2xl font-semibold text-gray-700 mb-2'>
             Vision and Mission
-          </h2>
+          </h2> */}
           <p className='text-gray-600'>{answers.questionThree}</p>
         </div>
         <div className='mb-4'>
-          <h2 className='text-xl md:text-2xl font-semibold text-gray-700 mb-2'>
+          {/* <h2 className='text-xl md:text-2xl font-semibold text-gray-700 mb-2'>
             Values and Beliefs
-          </h2>
+          </h2> */}
           <p className='text-gray-600'>{answers.questionFour}</p>
         </div>
         <div className='mb-4'>
-          <h2 className='text-xl md:text-2xl font-semibold text-gray-700 mb-2'>
+          {/* <h2 className='text-xl md:text-2xl font-semibold text-gray-700 mb-2'>
             Impact and Beneficiaries
-          </h2>
+          </h2> */}
           <p className='text-gray-600'>{answers.questionFive}</p>
         </div>
         <div className='mb-4'>
-          <h2 className='text-xl md:text-2xl font-semibold text-gray-700 mb-2'>
+          {/* <h2 className='text-xl md:text-2xl font-semibold text-gray-700 mb-2'>
             Actions and Commitments
-          </h2>
+          </h2> */}
           <p className='text-gray-600'>{answers.questionSix}</p>
         </div>
       </div>
