@@ -4,9 +4,24 @@ import {
   loginStart,
   loginSuccess,
   logoutUser,
+  registerFail,
+  registerStart,
+  registerSuccess,
 } from "../slices/userSlice";
 import axios from "axios";
 import { API_ENDPOINT } from "../../Url";
+
+export const register = (details) => async (dispatch) => {
+  dispatch(registerStart());
+  try {
+    const { data } = await axios.post(`${API_ENDPOINT}/user/register`, details);
+    dispatch(registerSuccess(data));
+  } catch (err) {
+    dispatch(
+      registerFail(err.response ? err.response.data.message : err.message)
+    );
+  }
+};
 
 export const login = (details) => async (dispatch) => {
   dispatch(loginStart());
