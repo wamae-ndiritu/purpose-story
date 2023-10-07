@@ -10,6 +10,8 @@ export const userSlice = createSlice({
     userInfo: userInfoFromLocalStorage,
     loading: false,
     error: null,
+    resetPass: false,
+    updatePass: false,
   },
   reducers: {
     loginStart: (state) => {
@@ -85,6 +87,5 @@ export const {
   getUsersStart,
   getUsersSuccess,
   getUsersFail,
-  hideError,
 } = userSlice.actions;
 export default userSlice.reducer;
