@@ -1,15 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getPurposeStory } from "../redux/actions/purposeActions";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../utils/Loading";
 import Message from "../utils/Message";
+import ShareModal from "./ShareModal";
 
 const ViewAnswers = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const purposeStory = useSelector((state) => state.purposeStory);
   const { loading, error, item } = purposeStory;
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
   // Dummy answers for testing
   const answers = {
     questionOne: item?.purpose,
@@ -68,6 +79,7 @@ const ViewAnswers = () => {
 
   return (
     <div className='w-full flex flex-col items-center gap-5 justify-center py-12'>
+      {isModalOpen && <ShareModal closeModal={closeModal} />}
       <div className='mx-4 md:mx-0 md:w-3/5 bg-white p-4 md:p-8' id='printable'>
         <h2 className='text-2xl md:text-3xl text-center font-bold mb-3 text-gray-700'>
           My Purpose Story
@@ -117,12 +129,17 @@ const ViewAnswers = () => {
         >
           Go Back to Form
         </button>
-        <button
-          className='bg-green-500 text-white rounded px-4 py-1'
-          onClick={downloadPDF}
-        >
-          Download PDF
-        </button>
+        <div className='flex items-center gap-3'>
+          <div className='cursor-pointer' onClick={openModal}>
+            🔄
+          </div>
+          <div className='cursor-pointer' onClick={downloadPDF}>
+            ⬇️
+          </div>
+          {/* <button className='bg-green-500 text-white rounded px-4 py-1'>
+            Download PDF
+          </button> */}
+        </div>
       </div>
     </div>
   );
