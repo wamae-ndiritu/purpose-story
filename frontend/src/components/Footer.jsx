@@ -6,17 +6,12 @@ const Footer = () => {
     <div className='w-full bg-gray-800 text-white py-3 text-center'>
       <div className='container mx-auto'>
         <ul className='flex justify-center space-x-6'>
-          <li>
-            <a
-              href='#'
-              className='text-sm hover:text-gray-400 transition duration-300'
-            >
-              <Link to='/questions/purpose'>Get Started</Link>
-            </a>
+          <li className='text-sm hover:text-gray-400 transition duration-300'>
+            <Link to='/questions/purpose'>Get Started</Link>
           </li>
-          <li>
+          <li className='text-sm hover:text-gray-400 transition duration-300'>
             <a
-              href='#'
+              href='/'
               className='text-sm hover:text-gray-400 transition duration-300'
             >
               Purpose Clarification Tool
