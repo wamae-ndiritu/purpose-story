@@ -5,3 +5,23 @@
 .d-none{
     display: none;
 }
+
+.text-yellow-gold {
+    color: #FFC855;
+}
+
+.bg-yellow-gold {
+    background-color: #FFC855;
+}
+
+.text-maroon-red {
+    color: #931A1D;
+}
+
+.bg-maroon-red {
+    background-color: #931A1D;
+}
+
+input, textarea{
+    color: rgb(75 85 99);;
+}

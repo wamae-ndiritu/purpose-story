@@ -6,14 +6,14 @@ const Hero = () => {
     <div className='bg-gray-800 text-white py-4 w-full md:py-16 flex flex-wrap md:flew-row items-center justify-between'>
       {/* Left Section */}
       <div className='md:w-1/2 p-6'>
-        <h1 className='text-3xl md:text-4xl font-bold mb-4'>
+        <h1 className='text-3xl md:text-4xl font-bold mb-4 text-yellow-gold'>
           Your Purpose Story
         </h1>
         <p className='text-lg mb-8'>
           Craft your narrative and make a difference in the world. Share your
           purpose and inspire others.
         </p>
-        <button className='bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded'>
+        <button className='bg-maroon-red text-white font-semibold px-6 py-2 rounded'>
           <Link to='/questions/purpose'>Get Started</Link>
         </button>
       </div>

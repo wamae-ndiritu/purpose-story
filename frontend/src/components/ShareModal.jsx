@@ -95,13 +95,13 @@ const ShareModal = ({ closeModal }) => {
           </p>
           <div className='w-full flex justify-between'>
             <button
-              class='bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded'
+              class='bg-yellow-gold text-white py-2 px-4 rounded'
               onClick={shareResponses}
             >
               OK
             </button>
             <button
-              class='bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded'
+              class='bg-maroon-red hover:bg-red-700 text-white py-2 px-4 rounded'
               onClick={closeModal}
             >
               Close

@@ -39,16 +39,16 @@ const QuestionOne = ({ page, totalPages, changePage }) => {
   }, [item]);
 
   return (
-    <div className='flex flex-col md:flex-row md:items-start justify-center py-16 mb-20'>
+    <div className='w-full flex flex-col md:flex-row md:items-start justify-center pb-16 pt-12 mb-20'>
       {/* Question Side */}
       <div className='md:w-1/2 mb-6 md:mb-0 px-4'>
-        <h2 className='text-2xl md:text-3xl font-bold mb-4'>
-          Purpose Statement
+        <h2 className='text-2xl md:text-3xl font-bold mb-4 text-maroon-red'>
+          1. Purpose Statement
         </h2>
-        <p>Here just state your purpose.</p>
-        <p>
+        <p className='text-gray-600'>Here just state your purpose.</p>
+        <p className='text-gray-600'>
           If you don’t have a concise purpose statement, use the{" "}
-          <a href='/#' className='text-sm text-purple-800'>
+          <a href='/#' className='text-md text-yellow-gold'>
             Purpose Clarification Tool
           </a>{" "}
           to craft one.
@@ -57,9 +57,11 @@ const QuestionOne = ({ page, totalPages, changePage }) => {
       {/* Form Side */}
       <div className='md:w-1/2 px-4'>
         <div className='flex justify-between items-center mb-2'>
-          <label className='block text-lg font-semibold'>Your Answer:</label>
+          <label className='block text-lg font-semibold text-maroon-red'>
+            Your Answer:
+          </label>
           <button
-            className='bg-green-400 rounded text-white py-1 px-4'
+            className='bg-yellow-gold rounded text-white py-1 px-4'
             onClick={handleSave}
           >
             Save

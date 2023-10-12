@@ -50,7 +50,9 @@ const Register = () => {
       }}
     >
       <form onSubmit={handleSubmit} className='bg-white p-8 rounded shadow-md'>
-        <h2 className='text-2xl text-center font-semibold mb-6'>Sign Up</h2>
+        <h2 className='text-2xl text-center font-semibold mb-6 text-maroon-red'>
+          Sign Up
+        </h2>
         {loading ? <Loading /> : error && <Message>{error}</Message>}
         <div className='mb-4'>
           <label
@@ -106,7 +108,7 @@ const Register = () => {
         </div>
         <button
           type='submit'
-          className='w-full bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-600'
+          className='w-full bg-maroon-red text-white py-2 px-4 rounded hover:bg-red-700'
         >
           Sign Up
         </button>

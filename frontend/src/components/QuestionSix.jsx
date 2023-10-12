@@ -53,11 +53,11 @@ const QuestionSix = ({ page, totalPages, changePage }) => {
   }, [item]);
 
   return (
-    <div className='flex flex-col md:flex-row md:items-start justify-center py-16'>
+    <div className='flex flex-col md:flex-row md:items-start justify-center pb-16 pt-12'>
       {/* Question Side */}
       <div className='md:w-1/2 mb-6 md:mb-0 px-4'>
-        <h2 className='text-2xl md:text-3xl font-bold mb-4'>
-          Actions and Commitments
+        <h2 className='text-2xl md:text-3xl font-bold mb-4 text-maroon-red'>
+          6. Actions and Commitments
         </h2>
         <p className='text-gray-600'>
           Outline the specific actions, initiatives, or commitments being
@@ -76,11 +76,11 @@ const QuestionSix = ({ page, totalPages, changePage }) => {
       {/* Form Side */}
       <div className='md:w-1/2 px-4'>
         <div className='flex justify-between items-center mb-2'>
-          <label className='block text-lg font-semibold'>
+          <label className='block text-lg font-semibold text-maroon-red'>
             Actions and Initiatives:
           </label>
           <button
-            className='bg-green-400 rounded text-white py-1 px-4'
+            className='bg-maroon-red rounded text-white py-1 px-4'
             onClick={handleSave}
           >
             Save
@@ -93,7 +93,7 @@ const QuestionSix = ({ page, totalPages, changePage }) => {
           placeholder='Outline your actions and initiatives here...'
         ></textarea>
 
-        <label className='block text-lg font-semibold mb-2'>
+        <label className='block text-lg font-semibold mb-2 text-maroon-red'>
           Examples of Projects/Partnerships:
         </label>
         <textarea
@@ -103,7 +103,7 @@ const QuestionSix = ({ page, totalPages, changePage }) => {
           placeholder='Provide examples of projects, partnerships, or collaborations...'
         ></textarea>
 
-        <label className='block text-lg font-semibold mb-2'>
+        <label className='block text-lg font-semibold mb-2 text-maroon-red'>
           Ongoing Dedication:
         </label>
         <textarea

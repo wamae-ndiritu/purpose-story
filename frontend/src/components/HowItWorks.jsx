@@ -38,7 +38,9 @@ const HowItWorksSection = () => {
   return (
     <div className='py-16 bg-gray-100'>
       <div className='container mx-auto'>
-        <h2 className='text-4xl font-bold text-center mb-8'>How It Works</h2>
+        <h2 className='text-4xl font-bold text-center mb-8 text-maroon-red'>
+          How It Works
+        </h2>
         <div className='grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8'>
           {steps.map((step) => (
             <div key={step.id} className='text-center'>

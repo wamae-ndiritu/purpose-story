@@ -53,11 +53,11 @@ const QuestionThree = ({ page, totalPages, changePage }) => {
   }, [item]);
 
   return (
-    <div className='flex flex-col md:flex-row md:justify-center py-16'>
+    <div className='flex flex-col md:flex-row md:justify-center pt-12 pb-16'>
       {/* Question Side */}
       <div className='md:w-1/2 mb-6 md:mb-0 px-4'>
-        <h2 className='text-2xl md:text-3xl font-bold mb-4'>
-          Vision and Mission
+        <h2 className='text-2xl md:text-3xl font-bold mb-4 text-maroon-red'>
+          3. Vision and Mission
         </h2>
         <p className='text-gray-600'>
           Clearly articulate the overarching vision for the future in line with
@@ -75,9 +75,11 @@ const QuestionThree = ({ page, totalPages, changePage }) => {
       {/* Form Side */}
       <div className='md:w-1/2 px-4'>
         <div className='flex justify-between items-center mb-2'>
-          <label className='block text-lg font-semibold'>Your Vision:</label>
+          <label className='block text-lg font-semibold text-maroon-red'>
+            Your Vision:
+          </label>
           <button
-            className='bg-green-400 rounded text-white py-1 px-4'
+            className='bg-yellow-gold rounded text-white py-1 px-4'
             onClick={handleSave}
           >
             Save
@@ -90,7 +92,7 @@ const QuestionThree = ({ page, totalPages, changePage }) => {
           placeholder='Enter your vision here...'
         ></textarea>
 
-        <label className='block text-lg font-semibold mb-2'>
+        <label className='block text-lg font-semibold mb-2 text-maroon-red'>
           Your Mission:
         </label>
         <textarea
@@ -100,7 +102,7 @@ const QuestionThree = ({ page, totalPages, changePage }) => {
           placeholder='Enter your mission here...'
         ></textarea>
 
-        <label className='block text-lg font-semibold mb-2'>
+        <label className='block text-lg font-semibold mb-2 text-maroon-red'>
           Intended Impact:
         </label>
         <textarea

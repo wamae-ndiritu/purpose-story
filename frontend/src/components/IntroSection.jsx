@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const IntroSection = () => {
   return (
-    <section className='bg-gray-200 py-16 text-gray-600 mt-5'>
+    <section className='bg-gray-200 py-16 text-gray-600'>
       <div className='container mx-auto text-center px-4'>
-        <h1 className='text-4xl font-bold mb-4'>
+        <h1 className='text-4xl font-bold mb-4 text-maroon-red'>
           Unlock Your Purpose with My Purpose Story
         </h1>
         <p className='text-lg mb-8'>
@@ -18,7 +18,7 @@ const IntroSection = () => {
         <p className='text-lg mb-8'>
           If you haven’t fully developed your purpose and purpose statement, My
           Purpose Story can guide you through the{" "}
-          <a href='#' className='text-purple-500'>
+          <a href='#' className='text-maroon-red'>
             Purpose Clarification Tool
           </a>
           , setting you on the path to a more meaningful and purposeful
@@ -26,7 +26,7 @@ const IntroSection = () => {
         </p>
         <Link
           to='/questions/purpose'
-          className='bg-white text-gray-800 hover:bg-gray-800 hover:text-white py-2 px-6 rounded-full text-lg font-semibold inline-block transition duration-300'
+          className='bg-white text-gray-800 py-2 px-6 rounded-full text-lg font-semibold inline-block transition duration-300'
         >
           Get Started
         </Link>

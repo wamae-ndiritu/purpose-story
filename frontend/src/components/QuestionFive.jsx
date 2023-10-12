@@ -46,11 +46,11 @@ const QuestionFive = ({ page, totalPages, changePage }) => {
   }, [item]);
 
   return (
-    <div className='flex flex-col md:flex-row md:items-start justify-center py-16 mb-4'>
+    <div className='flex flex-col md:flex-row md:items-start justify-center pb-16 pt-12 mb-4'>
       {/* Question Side */}
       <div className='md:w-1/2 mb-6 md:mb-0 px-4'>
-        <h2 className='text-2xl md:text-3xl font-bold mb-4'>
-          Impact and Beneficiaries
+        <h2 className='text-2xl md:text-3xl font-bold mb-4 text-maroon-red'>
+          5. Impact and Beneficiaries
         </h2>
         <p className='text-gray-600'>
           Describe the tangible impact or positive outcomes your purpose seeks
@@ -69,11 +69,11 @@ const QuestionFive = ({ page, totalPages, changePage }) => {
       {/* Form Side */}
       <div className='md:w-1/2 px-4'>
         <div className='flex justify-between items-center mb-2'>
-          <label className='block text-lg font-semibold'>
+          <label className='block text-lg font-semibold text-maroon-red'>
             Impact Description:
           </label>
           <button
-            className='bg-green-400 rounded text-white py-1 px-4'
+            className='bg-maroon-red rounded text-white py-1 px-4'
             onClick={handleSave}
           >
             Save
@@ -86,7 +86,7 @@ const QuestionFive = ({ page, totalPages, changePage }) => {
           placeholder='Describe the impact here...'
         ></textarea>
 
-        <label className='block text-lg font-semibold mb-2'>
+        <label className='block text-lg font-semibold mb-2 text-maroon-red'>
           Beneficiaries:
         </label>
         <textarea
