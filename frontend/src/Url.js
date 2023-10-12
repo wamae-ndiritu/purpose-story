@@ -1,1 +1,1 @@
-export const API_ENDPOINT = "http://localhost:8000/api/v1";
+export const API_ENDPOINT = "https://purpose-tool-backend.onrender.com/api/v1";
