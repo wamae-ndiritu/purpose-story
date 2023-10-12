@@ -2,10 +2,6 @@ import React from "react";
 import emailjs from "@emailjs/browser";
 import { useSelector } from "react-redux";
 
-const serviceID = process.env.REACT_APP_SERVICE_ID;
-const templateID = process.env.REACT_APP_TEMPLATE_ID;
-const publicKey = process.env.REACT_APP_PUBLIC_KEY;
-
 const ShareModal = ({ closeModal }) => {
   const purposeStory = useSelector((state) => state.purposeStory);
   const { item } = purposeStory;

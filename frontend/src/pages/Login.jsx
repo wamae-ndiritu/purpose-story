@@ -108,7 +108,7 @@ const Login = () => {
     if (userInfo?.token && userInfo?.account_type === "MPS") {
       navigate("/");
     }
-  }, [userInfo]);
+  }, [userInfo, navigate]);
 
   function hideError() {
     setLoginErr(null);

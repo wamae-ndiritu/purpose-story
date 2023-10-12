@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
 import QuestionOne from "../components/QuestionOne";
 import QuestionTwo from "../components/QuestionTwo";
 import QuestionThree from "../components/QuestionThree";
 import QuestionFour from "../components/QuestionFour";
 import QuestionFive from "../components/QuestionFive";
 import QuestionSix from "../components/QuestionSix";
-import Pagination from "../components/Pagination";
 import QuestionViewWrapper from "../components/QuestionViewWrapper";
 
 const PurposeQuestion = () => {
-  const location = useLocation();
   const [page, setPage] = useState(1);
 
   const changePage = (page) => {

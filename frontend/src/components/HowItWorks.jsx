@@ -44,7 +44,7 @@ const HowItWorksSection = () => {
         <div className='grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8'>
           {steps.map((step) => (
             <div key={step.id} className='text-center'>
-              <div className='rounded-full bg-blue-500 text-white text-4xl w-16 h-16 flex items-center justify-center mx-auto mb-4'>
+              <div className='rounded-full bg-white border text-white text-xl w-12 h-12 flex items-center justify-center mx-auto mb-4'>
                 {step.icon}
               </div>
               <div className='text-lg font-semibold mb-2'>{`Step ${step.id}`}</div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login, register } from "../redux/actions/userActions";
+import { register } from "../redux/actions/userActions";
 import Loading from "../utils/Loading";
 import Message from "../utils/Message";
 
@@ -38,7 +38,7 @@ const Register = () => {
     if (userInfo?.token) {
       navigate("/account/login");
     }
-  }, [userInfo]);
+  }, [userInfo, navigate]);
 
   return (
     <div
