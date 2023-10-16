@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useSelector } from "react-redux";
+import Loading from "../utils/Loading";
 
 const ShareModal = ({ closeModal }) => {
   const purposeStory = useSelector((state) => state.purposeStory);
@@ -40,7 +41,10 @@ const ShareModal = ({ closeModal }) => {
     ...questions,
   };
 
+  const [loading, setLoading] = useState(false);
+
   const shareResponses = () => {
+    setLoading(true);
     emailjs
       .send(
         "service_iz21rs6",
@@ -49,10 +53,12 @@ const ShareModal = ({ closeModal }) => {
         "KehPQQgwKRR6ja30g"
       )
       .then((response) => {
+        setLoading(false);
         console.log(response.text);
         closeModal();
       })
       .catch((error) => {
+        setLoading(false);
         console.log("FAILED...", error);
         closeModal();
       });
@@ -82,6 +88,7 @@ const ShareModal = ({ closeModal }) => {
         </button>
         <div>
           <h2 class='text-2xl font-semibold mb-4'>Share your Story</h2>
+          {loading && <Loading />}
           <p class='text-gray-700 mb-6'>
             By consenting to share your responses with the coach, you are
             agreeing to receive feedback aimed at enhancing your answers for a
