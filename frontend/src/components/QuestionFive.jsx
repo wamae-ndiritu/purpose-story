@@ -50,12 +50,8 @@ const QuestionFive = ({ page, totalPages, changePage }) => {
       {/* Question Side */}
       <div className='md:w-1/2 mb-6 md:mb-0 px-4'>
         <h2 className='text-2xl md:text-3xl font-bold mb-4 text-maroon-red'>
-          5. Impact and Beneficiaries
+          5. Beneficiaries
         </h2>
-        <p className='text-gray-600'>
-          Describe the tangible impact or positive outcomes your purpose seeks
-          to create.
-        </p>
         <p className='text-gray-600'>
           Identify the specific stakeholders, communities, or beneficiaries who
           stand to benefit from your purpose.
@@ -69,8 +65,8 @@ const QuestionFive = ({ page, totalPages, changePage }) => {
       {/* Form Side */}
       <div className='md:w-1/2 px-4'>
         <div className='flex justify-between items-center mb-2'>
-          <label className='block text-lg font-semibold text-maroon-red'>
-            Impact Description:
+          <label className='block text-lg font-semibold mb-2 text-maroon-red'>
+            Beneficiaries:
           </label>
           <button
             className='bg-maroon-red rounded text-white py-1 px-4'
@@ -81,20 +77,11 @@ const QuestionFive = ({ page, totalPages, changePage }) => {
         </div>
         <textarea
           className='w-full h-20 p-4 border border-gray-300 rounded mb-4 focus:outline-none focus:border-blue-500'
-          value={impact}
-          onChange={handleImpactChange}
-          placeholder='Describe the impact here...'
-        ></textarea>
-
-        <label className='block text-lg font-semibold mb-2 text-maroon-red'>
-          Beneficiaries:
-        </label>
-        <textarea
-          className='w-full h-20 p-4 border border-gray-300 rounded mb-4 focus:outline-none focus:border-blue-500'
           value={beneficiaries}
           onChange={handleBeneficiariesChange}
           placeholder='Identify the beneficiaries here...'
         ></textarea>
+
         {loading ? <Loading /> : error && <Message>{error}</Message>}
         <Pagination
           page={page}

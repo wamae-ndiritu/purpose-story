@@ -5,33 +5,33 @@ const HowItWorksSection = () => {
     {
       id: 1,
       icon: "🤔", // Add your desired icon here
-      description: "What is your purpose? Define your mission and vision.",
+      description: "What is your purpose?",
     },
     {
       id: 2,
       icon: "✍️",
-      description: "Share your personal anecdotes and influential moments.",
+      description: "Connecting with your purpose.",
     },
     {
       id: 3,
       icon: "🎯",
-      description: "Identify your core values and guiding principles.",
+      description: "Establishing the impact of your purpose.",
     },
     {
       id: 4,
       icon: "🌍",
-      description: "Describe the impact you aim to create and for whom.",
+      description: "Describe the values and beliefs to guide your purpose.",
     },
     {
       id: 5,
       icon: "🔨",
-      description:
-        "Outline the specific actions and initiatives you will take.",
+      description: "Identifying the beneficiaries.",
     },
     {
       id: 6,
       icon: "🚀",
-      description: "Launch your purpose journey and inspire others!",
+      description:
+        "Outline the specific actions and initiatives you will take.",
     },
   ];
 

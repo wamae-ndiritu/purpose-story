@@ -45,7 +45,7 @@ const QuestionOne = ({ page, totalPages, changePage }) => {
         <h2 className='text-2xl md:text-3xl font-bold mb-4 text-maroon-red'>
           1. Purpose Statement
         </h2>
-        <p className='text-gray-600'>Here just state your purpose.</p>
+        <p className='text-gray-600'>State your purpose.</p>
         <p className='text-gray-600'>
           If you don’t have a concise purpose statement, use the{" "}
           <a href='/#' className='text-md text-yellow-gold'>

@@ -57,7 +57,7 @@ const QuestionThree = ({ page, totalPages, changePage }) => {
       {/* Question Side */}
       <div className='md:w-1/2 mb-6 md:mb-0 px-4'>
         <h2 className='text-2xl md:text-3xl font-bold mb-4 text-maroon-red'>
-          3. Vision and Mission
+          3. Vision, Mission and Impact
         </h2>
         <p className='text-gray-600'>
           Clearly articulate the overarching vision for the future in line with

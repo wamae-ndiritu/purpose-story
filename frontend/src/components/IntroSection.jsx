@@ -6,7 +6,10 @@ const IntroSection = () => {
     <section className='bg-gray-200 py-16 text-gray-600'>
       <div className='container mx-auto text-center px-4'>
         <h1 className='text-4xl font-bold mb-4 text-maroon-red'>
-          Unlock Your Purpose with My Purpose Story
+          <span className='text-gray-700'>
+            Turn your purpose into actions with{" "}
+          </span>
+          My Purpose Story
         </h1>
         <p className='text-lg mb-8'>
           My Purpose Story (MPS) is a powerful narrative tool that helps
