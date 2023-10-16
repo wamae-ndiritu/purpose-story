@@ -11,14 +11,14 @@ const Footer = () => {
           </li>
           <li className='text-sm hover:text-gray-400 transition duration-300'>
             <a
-              href='/'
+              href='https://purpose-clarity-tool.netlify.app/'
               className='text-sm hover:text-gray-400 transition duration-300'
             >
               Purpose Clarification Tool
             </a>
           </li>
         </ul>
-        <p className='mt-2 text-sm'>© 2023 KOMEBC. All rights reserved.</p>
+        <p className='mt-2 text-sm'>© 2023 Dr. Mango. All rights reserved.</p>
       </div>
     </div>
   );

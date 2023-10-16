@@ -24,7 +24,13 @@ const Navbar = () => {
             <Link to='/questions/purpose'>Get Started</Link>
           </li>
           <li className='text-lg hover:underline hover:cursor-pointer text-gray-500'>
-            Purpose Clarification Tool
+            <a
+              href='https://purpose-clarity-tool.netlify.app/'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Purpose Clarification Tool
+            </a>
           </li>
         </ul>
         <div className='flex flex-col items-center'>
