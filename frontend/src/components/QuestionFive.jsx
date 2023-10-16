@@ -12,12 +12,7 @@ const QuestionFive = ({ page, totalPages, changePage }) => {
   const dispatch = useDispatch();
   const purposeStory = useSelector((state) => state.purposeStory);
   const { loading, error, item } = purposeStory;
-  const [impact, setImpact] = useState("");
   const [beneficiaries, setBeneficiaries] = useState("");
-
-  const handleImpactChange = (event) => {
-    setImpact(event.target.value);
-  };
 
   const handleBeneficiariesChange = (event) => {
     setBeneficiaries(event.target.value);
@@ -27,7 +22,6 @@ const QuestionFive = ({ page, totalPages, changePage }) => {
     dispatch(
       updatePurposeStory({
         impactAndBeneficiaries: {
-          impact,
           beneficiaries,
         },
       })
@@ -40,7 +34,6 @@ const QuestionFive = ({ page, totalPages, changePage }) => {
 
   useEffect(() => {
     if (item) {
-      setImpact(item.impactAndBeneficiaries?.impact);
       setBeneficiaries(item.impactAndBeneficiaries?.beneficiaries);
     }
   }, [item]);

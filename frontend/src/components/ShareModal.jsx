@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 
 const ShareModal = ({ closeModal }) => {
   const purposeStory = useSelector((state) => state.purposeStory);
+  const user = useSelector((state) => state.user);
   const { item } = purposeStory;
+  const { userInfo } = user;
 
   const questions = {
     question_1: "Purpose Statement",
@@ -23,9 +25,7 @@ const ShareModal = ({ closeModal }) => {
       item?.vissionAndMission?.mission +
       item?.vissionAndMission?.impact,
     answer_4: item?.valuesAndBeliefs?.values + item?.valuesAndBeliefs?.beliefs,
-    answer_5:
-      item?.impactAndBeneficiaries?.impact +
-      item.impactAndBeneficiaries?.beneficiaries,
+    answer_5: item.impactAndBeneficiaries?.beneficiaries,
     answer_6:
       item?.actionsAndCommitments?.actions +
       item?.actionsAndCommitments?.examples +
@@ -33,13 +33,13 @@ const ShareModal = ({ closeModal }) => {
   };
 
   const templateParams = {
-    user_name: "Ndiritu Wa Wamai",
-    user_email: "nelitetech@gmail.com",
+    user_name: userInfo.fullName,
+    user_email: userInfo.email,
+    app_name: "My Purpose Story",
     ...answers,
     ...questions,
   };
 
-  console.log(templateParams);
   const shareResponses = () => {
     emailjs
       .send(

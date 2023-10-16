@@ -31,9 +31,7 @@ const ViewAnswers = () => {
       item?.vissionAndMission?.impact,
     questionFour:
       item?.valuesAndBeliefs?.values + item?.valuesAndBeliefs?.beliefs,
-    questionFive:
-      item?.impactAndBeneficiaries?.impact +
-      item.impactAndBeneficiaries?.beneficiaries,
+    questionFive: item.impactAndBeneficiaries?.beneficiaries,
     questionSix:
       item?.actionsAndCommitments?.actions +
       item?.actionsAndCommitments?.examples +
