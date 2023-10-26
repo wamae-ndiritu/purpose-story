@@ -80,7 +80,7 @@ const QuestionSix = ({ page, totalPages, changePage }) => {
             Actions and Initiatives:
           </label>
           <button
-            className='bg-maroon-red rounded text-white py-1 px-4'
+            className='bg-yellow-gold rounded text-white py-1 px-4'
             onClick={handleSave}
           >
             Save
