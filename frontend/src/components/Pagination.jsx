@@ -9,7 +9,7 @@ const Pagination = ({ page, totalPages, changePage }) => {
   }
 
   return (
-    <div className='flex items-center justify-center my-3 px-4'>
+    <div className='flex items-center justify-center my-5 px-8'>
       <button
         onClick={() => changePage(page - 1)}
         className={`bg-maroon-red hover:bg-red-700 text-white font-semibold py-2 px-4 rounded md:mr-2 ${

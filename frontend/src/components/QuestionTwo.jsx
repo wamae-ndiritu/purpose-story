@@ -33,7 +33,7 @@ const QuestionTwo = ({ page, totalPages, changePage }) => {
   }, [item]);
 
   return (
-    <div className='flex flex-col md:flex-row md:items-start justify-center pb-16 pt-12'>
+    <div className='flex flex-col md:flex-row md:items-start justify-center pb-16 pt-12 mb-5'>
       {/* Question Side */}
       <div className='md:w-1/2 mb-6 md:mb-0 px-4'>
         <h2 className='text-xl md:text-3xl font-bold mb-4 text-maroon-red'>
@@ -78,6 +78,7 @@ const QuestionTwo = ({ page, totalPages, changePage }) => {
           totalPages={totalPages}
           changePage={changePage}
         />
+        <div className='h-16 invisible'></div>
       </div>
     </div>
   );
