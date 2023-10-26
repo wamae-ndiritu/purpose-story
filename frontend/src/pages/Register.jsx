@@ -44,7 +44,7 @@ const Register = () => {
     <div
       className='flex justify-center items-center h-screen'
       style={{
-        backgroundImage: `url('https://i.ibb.co/QK89j83/purpose-1.jpg')`,
+        backgroundImage: `url('/assets/images/tool-bg.jpeg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
