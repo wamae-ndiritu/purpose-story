@@ -79,12 +79,6 @@ const QuestionSix = ({ page, totalPages, changePage }) => {
           <label className='block text-lg font-semibold text-maroon-red'>
             Actions and Initiatives:
           </label>
-          <button
-            className='bg-yellow-gold rounded text-white py-1 px-4'
-            onClick={handleSave}
-          >
-            Save
-          </button>
         </div>
         <textarea
           className='w-full h-20 p-4 border border-gray-300 rounded mb-3 focus:outline-none focus:border-blue-500'
@@ -112,6 +106,14 @@ const QuestionSix = ({ page, totalPages, changePage }) => {
           onChange={handleDedicationChange}
           placeholder='Describe your ongoing dedication and continuous efforts...'
         ></textarea>
+        <div className='flex justify-center items-center'>
+          <button
+            className='w-3/4 bg-maroon-red hover:bg-red-700 rounded text-white py-1 px-4'
+            onClick={handleSave}
+          >
+            Save
+          </button>
+        </div>
         {loading ? <Loading /> : error && <Message>{error}</Message>}
         <Pagination
           page={page}

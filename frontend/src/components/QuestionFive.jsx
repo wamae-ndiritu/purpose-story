@@ -61,12 +61,6 @@ const QuestionFive = ({ page, totalPages, changePage }) => {
           <label className='block text-lg font-semibold mb-2 text-maroon-red'>
             Beneficiaries:
           </label>
-          <button
-            className='bg-yellow-gold rounded text-white py-1 px-4'
-            onClick={handleSave}
-          >
-            Save
-          </button>
         </div>
         <textarea
           className='w-full h-20 p-4 border border-gray-300 rounded mb-4 focus:outline-none focus:border-blue-500'
@@ -74,7 +68,14 @@ const QuestionFive = ({ page, totalPages, changePage }) => {
           onChange={handleBeneficiariesChange}
           placeholder='Identify the beneficiaries here...'
         ></textarea>
-
+        <div className='flex justify-center items-center'>
+          <button
+            className='w-3/4 bg-maroon-red hover:bg-red-700 rounded text-white py-1 px-4'
+            onClick={handleSave}
+          >
+            Save
+          </button>
+        </div>
         {loading ? <Loading /> : error && <Message>{error}</Message>}
         <Pagination
           page={page}

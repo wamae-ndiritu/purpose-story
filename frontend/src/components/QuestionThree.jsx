@@ -78,12 +78,6 @@ const QuestionThree = ({ page, totalPages, changePage }) => {
           <label className='block text-lg font-semibold text-maroon-red'>
             Your Vision:
           </label>
-          <button
-            className='bg-yellow-gold rounded text-white py-1 px-4'
-            onClick={handleSave}
-          >
-            Save
-          </button>
         </div>
         <textarea
           className='w-full h-15 p-4 py-1 border border-gray-300 rounded mb-3 focus:outline-none focus:border-blue-500'
@@ -111,6 +105,14 @@ const QuestionThree = ({ page, totalPages, changePage }) => {
           onChange={handleImpactChange}
           placeholder='Describe the impact you aim to achieve...'
         ></textarea>
+        <div className='flex justify-center items-center'>
+          <button
+            className='w-3/4 bg-maroon-red hover:bg-red-700 rounded text-white py-1 px-4'
+            onClick={handleSave}
+          >
+            Save
+          </button>
+        </div>
         {loading ? <Loading /> : error && <Message>{error}</Message>}
         <Pagination
           page={page}
