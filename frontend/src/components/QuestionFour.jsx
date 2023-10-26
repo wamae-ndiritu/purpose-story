@@ -88,14 +88,12 @@ const QuestionFour = ({ page, totalPages, changePage }) => {
           onChange={handleBeliefsChange}
           placeholder='Enter your beliefs here...'
         ></textarea>
-        <div className='flex justify-center items-center'>
-          <button
-            className='w-3/4 bg-maroon-red hover:bg-red-700 rounded text-white py-1 px-4'
-            onClick={handleSave}
-          >
-            Save
-          </button>
-        </div>
+        <button
+          className='w-26 bg-maroon-red hover:bg-red-700 rounded text-white py-1 px-4'
+          onClick={handleSave}
+        >
+          Save
+        </button>
         {loading ? <Loading /> : error && <Message>{error}</Message>}
         <Pagination
           page={page}
