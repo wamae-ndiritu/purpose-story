@@ -1,1 +1,2 @@
-export const API_ENDPOINT = "https://purpose-tool-backend.onrender.com/api/v1";
+const API_URL = process.env.REACT_APP_API_URL;
+export const API_ENDPOINT = `${API_URL}/api/v1`;
