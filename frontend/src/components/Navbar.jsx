@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../redux/actions/userActions";
+import { PCT_LINK } from "../Url";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -21,14 +22,13 @@ const Navbar = () => {
       <div className='flex md:flex-row md:items-center gap-3 float-right'>
         <ul className='d-none md:flex md:items-center gap-3 mr-10 p-0 m-0'>
           <li className='text-lg hover:underline hover:cursor-pointer text-gray-500'>
+            <Link to='/'>Home</Link>
+          </li>
+          <li className='text-lg hover:underline hover:cursor-pointer text-gray-500'>
             <Link to='/questions/purpose'>Get Started</Link>
           </li>
           <li className='text-lg hover:underline hover:cursor-pointer text-gray-500'>
-            <a
-              href='https://purpose-clarity-tool.netlify.app/'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
+            <a href={`${PCT_LINK}`} target='_blank' rel='noopener noreferrer'>
               Purpose Clarification Tool
             </a>
           </li>

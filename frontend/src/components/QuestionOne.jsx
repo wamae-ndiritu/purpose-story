@@ -8,6 +8,7 @@ import {
   getPurposeStory,
   updatePurposeStory,
 } from "../redux/actions/purposeActions";
+import { PCT_LINK } from "../Url";
 
 const QuestionOne = ({ page, totalPages, changePage }) => {
   const dispatch = useDispatch();
@@ -48,7 +49,12 @@ const QuestionOne = ({ page, totalPages, changePage }) => {
         <p className='text-gray-600'>State your purpose.</p>
         <p className='text-gray-600'>
           If you don’t have a concise purpose statement, use the{" "}
-          <a href='/#' className='text-md text-yellow-gold'>
+          <a
+            href={`${PCT_LINK}`}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-md text-yellow-gold'
+          >
             Purpose Clarification Tool
           </a>{" "}
           to craft one.

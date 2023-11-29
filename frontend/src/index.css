@@ -25,3 +25,7 @@
 input, textarea{
     color: rgb(75 85 99);;
 }
+
+.main-children {
+    min-height: 70vh;
+}

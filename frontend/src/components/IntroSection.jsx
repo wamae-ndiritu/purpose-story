@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { PCT_LINK } from "../Url";
 
 const IntroSection = () => {
   return (
@@ -21,7 +22,12 @@ const IntroSection = () => {
         <p className='text-lg mb-8'>
           If you haven’t fully developed your purpose and purpose statement, My
           Purpose Story can guide you through the{" "}
-          <a href='/' className='text-maroon-red'>
+          <a
+            href={`${PCT_LINK}`}
+            className='text-maroon-red'
+            target='_blank'
+            rel='noreferrer'
+          >
             Purpose Clarification Tool
           </a>
           , setting you on the path to a more meaningful and purposeful
@@ -29,9 +35,9 @@ const IntroSection = () => {
         </p>
         <Link
           to='/questions/purpose'
-          className='bg-white text-gray-800 py-2 px-6 rounded-full text-lg font-semibold inline-block transition duration-300'
+          className='border text-white bg-maroon-red hover:bg-white hover:text-gray-700 py-2 px-6 rounded-full text-lg font-semibold inline-block transition duration-300'
         >
-          Get Started
+          <h6 className='text-white hover:text-gray-700'>Get Started</h6>
         </Link>
       </div>
     </section>

@@ -6,7 +6,7 @@ const QuestionViewWrapper = ({ children }) => {
   return (
     <div className='bg-slate-100'>
       <Navbar />
-      {children}
+      <div className='main-children'>{children}</div>
       <Footer />
     </div>
   );
