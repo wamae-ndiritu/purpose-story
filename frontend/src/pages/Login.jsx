@@ -204,6 +204,12 @@ const Login = () => {
                 >
                   Reset Password
                 </button>
+                <p
+                  className='text-sm text-maroon-red underline cursor-pointer'
+                  onClick={() => setForgotPass(false)}
+                >
+                  Go Back
+                </p>
               </div>
             </section>
           )
