@@ -13,13 +13,13 @@ const Navbar = () => {
     dispatch(logout());
   };
   return (
-    <div className='sticky z-20 top-0 w-full bg-white text-white flex md:flex-row items-center justify-end px-3 py-2'>
-      <div className='bg-white p-2 w-32 md:w-38 absolute top-1 left-0 bottom-1'>
+    <div className='sticky z-20 top-0 w-full bg-white text-white flex md:flex-row items-center justify-end px-3 py-2 border-b'>
+      <div className='bg-white p-2 md:w-38 absolute top-1 left-0 bottom-1'>
         <Link to='/'>
           <img
             src='/assets/images/logo.png'
             alt='...'
-            className='h-12 object-contain'
+            className='h-12 w-32 md:w-full object-contain'
           />
         </Link>
       </div>
