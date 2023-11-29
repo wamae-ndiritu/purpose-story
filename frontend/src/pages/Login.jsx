@@ -210,7 +210,7 @@ const Login = () => {
         ) : (
           <>
             <h2 className='text-2xl text-center font-semibold mb-6 text-maroon-red my-auto'>
-              Login
+              <span className='font-bold'>My Purpose Story</span> <br /> Login
             </h2>
             <p className='text-gray-600 text-sm mb-3'>
               Please use your My Purpose Story account!
