@@ -14,9 +14,13 @@ const Navbar = () => {
   };
   return (
     <div className='sticky z-20 top-0 w-full bg-white text-white flex md:flex-row items-center justify-end px-3 py-2'>
-      <div className='bg-white p-2 w-38 absolute top-1 left-0 bottom-1'>
+      <div className='bg-white p-2 w-32 md:w-38 absolute top-1 left-0 bottom-1'>
         <Link to='/'>
-          <img src='/assets/images/logo.png' alt='...' className='h-12' />
+          <img
+            src='/assets/images/logo.png'
+            alt='...'
+            className='h-12 object-contain'
+          />
         </Link>
       </div>
       <div className='flex md:flex-row md:items-center gap-3 float-right'>

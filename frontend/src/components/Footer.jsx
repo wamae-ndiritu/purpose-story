@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { PCT_LINK } from "../Url";
 
 const Footer = () => {
   return (
@@ -11,8 +12,10 @@ const Footer = () => {
           </li>
           <li className='text-sm hover:text-gray-400 transition duration-300'>
             <a
-              href='https://purpose-clarity-tool.netlify.app/'
+              href={`${PCT_LINK}`}
               className='text-sm hover:text-gray-400 transition duration-300'
+              target='_blank'
+              rel='noopener noreferrer'
             >
               Purpose Clarification Tool
             </a>

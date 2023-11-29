@@ -120,12 +120,12 @@ const ViewAnswers = () => {
           <p className='text-gray-600'>{answers.questionSix}</p>
         </div>
       </div>
-      <div className='w-full px-4 md:px-0 md:w-3/5 flex justify-between'>
+      <div className='w-full md:px-4 md:px-0 md:w-3/5 flex gap-3 md:gap-0 md:justify-between'>
         <button
           className='bg-maroon-red text-white rounded px-4 py-1'
           onClick={() => navigate("/questions/purpose")}
         >
-          Go Back to Form
+          Back to Form
         </button>
         <div className='flex items-center gap-3'>
           <div

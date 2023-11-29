@@ -159,7 +159,7 @@ const Login = () => {
               </div>
               <div className='mb-3'>
                 <button
-                  className='w-full bg-maroon-red text-white py-2 px-4 rounded hover:bg-gray-600'
+                  className='w-full bg-maroon-red text-white py-2 px-4 rounded hover:bg-red-700'
                   onClick={handleSubmitResetPassword}
                 >
                   Reset Password
@@ -199,7 +199,7 @@ const Login = () => {
               </div>
               <div className='mb-3 d-flex flex-column justify-content-center align-items-center'>
                 <button
-                  className='w-full bg-maroon-red text-white py-2 px-4 rounded hover:bg-gray-600'
+                  className='w-full bg-maroon-red text-white py-2 px-4 rounded hover:bg-red-700'
                   onClick={handleResetPass}
                 >
                   Reset Password
@@ -209,9 +209,12 @@ const Login = () => {
           )
         ) : (
           <>
-            <h2 className='text-2xl text-center font-semibold mb-6 text-maroon-red'>
+            <h2 className='text-2xl text-center font-semibold mb-6 text-maroon-red my-auto'>
               Login
             </h2>
+            <p className='text-gray-600 text-sm mb-3'>
+              Please use your My Purpose Story account!
+            </p>
             {loginErr && <Message>{loginErr}</Message>}
             {loading ? <Loading /> : error && <Message>{error}</Message>}
             <div className='mb-4'>
@@ -258,13 +261,13 @@ const Login = () => {
               Don't have an account?{" "}
               <Link
                 to='/account/register'
-                className='text-green-500 cursor-pointer underline'
+                className='text-maroon-red cursor-pointer underline'
               >
                 Sign Up
               </Link>
             </p>
             <p
-              className='text-sm text-purple-800 underline cursor-pointer'
+              className='text-sm text-maroon-red underline cursor-pointer'
               onClick={() => setForgotPass(true)}
             >
               Forgot password?

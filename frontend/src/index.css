@@ -27,5 +27,24 @@ input, textarea{
 }
 
 .main-children {
-    min-height: 70vh;
+    min-height: 80vh;
+}
+
+.mobile-pagination{
+    display: none;
+}
+
+.pagination-margin{
+    margin-top: -50px;
+}
+
+@media (max-width: 438.5px) {
+    .mobile-pagination{
+        display: flex;
+    }
+
+    .big-pagination{
+        display: none;
+    }
+    
 }
