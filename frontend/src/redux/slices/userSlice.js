@@ -67,6 +67,9 @@ export const userSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    hideError: (state) => {
+      state.error = null;
+    },
   },
 });
 
@@ -87,5 +90,6 @@ export const {
   getUsersStart,
   getUsersSuccess,
   getUsersFail,
+  hideError,
 } = userSlice.actions;
 export default userSlice.reducer;

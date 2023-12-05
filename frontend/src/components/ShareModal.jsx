@@ -19,18 +19,19 @@ const ShareModal = ({ closeModal }) => {
   };
 
   const answers = {
-    answer_1: item?.purpose,
-    answer_2: item?.origin,
+    answer_1: item?.purpose || "",
+    answer_2: item?.origin || "",
     answer_3:
       item?.vissionAndMission?.vision +
-      item?.vissionAndMission?.mission +
-      item?.vissionAndMission?.impact,
-    answer_4: item?.valuesAndBeliefs?.values + item?.valuesAndBeliefs?.beliefs,
-    answer_5: item.impactAndBeneficiaries?.beneficiaries,
+        item?.vissionAndMission?.mission +
+        item?.vissionAndMission?.impact || "",
+    answer_4:
+      item?.valuesAndBeliefs?.values + item?.valuesAndBeliefs?.beliefs || "",
+    answer_5: item?.impactAndBeneficiaries?.beneficiaries || "",
     answer_6:
       item?.actionsAndCommitments?.actions +
-      item?.actionsAndCommitments?.examples +
-      item?.actionsAndCommitments?.dedication,
+        item?.actionsAndCommitments?.examples +
+        item?.actionsAndCommitments?.dedication || "",
   };
 
   const templateParams = {
@@ -44,24 +45,33 @@ const ShareModal = ({ closeModal }) => {
   const [loading, setLoading] = useState(false);
 
   const shareResponses = () => {
-    setLoading(true);
-    emailjs
-      .send(
-        "service_iz21rs6",
-        "template_niqb61f",
-        templateParams,
-        "KehPQQgwKRR6ja30g"
-      )
-      .then((response) => {
-        setLoading(false);
-        console.log(response.text);
-        closeModal();
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log("FAILED...", error);
-        closeModal();
-      });
+    if (
+      answers.answer_1 !== "" ||
+      answers.answer_2 !== "" ||
+      answers.answer_3 !== "" ||
+      answers.answer_4 !== "" ||
+      answers.answer_5 !== "" ||
+      answers.answer_6 !== ""
+    ) {
+      setLoading(true);
+      emailjs
+        .send(
+          "service_iz21rs6",
+          "template_niqb61f",
+          templateParams,
+          "KehPQQgwKRR6ja30g"
+        )
+        .then((response) => {
+          setLoading(false);
+          console.log(response.text);
+          closeModal();
+        })
+        .catch((error) => {
+          setLoading(false);
+          console.log(error);
+          closeModal();
+        });
+    }
   };
   return (
     <div class='fixed inset-0 flex items-center justify-center z-50'>

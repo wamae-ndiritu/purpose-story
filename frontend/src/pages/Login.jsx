@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  hideValidationError,
   login,
   resetPassword,
   updatePassword,
@@ -99,22 +100,29 @@ const Login = () => {
   }, [updatePass]);
 
   useEffect(() => {
-    if (userInfo?.token && userInfo?.account_type !== "MPS") {
-      setLoginErr("Invalid credentials!");
-    }
-  }, [userInfo]);
-
-  useEffect(() => {
-    if (userInfo?.token && userInfo?.account_type === "MPS") {
+    if (userInfo?.token) {
       navigate("/");
     }
   }, [userInfo, navigate]);
 
-  function hideError() {
-    setLoginErr(null);
-  }
+  useEffect(() => {
+    if (error) {
+      setEmail("");
+      setPassword("");
+    }
+  }, [error]);
 
-  setInterval(hideError, 5000);
+  useEffect(() => {
+    if (error) {
+      // Set a timeout to dispatch hideValidationError after 10s
+      const timeoutId = setTimeout(() => {
+        dispatch(hideValidationError());
+      }, 2000);
+
+      // Cleanup the timeout if the component unmounts or if error changes before the timeout
+      return () => clearTimeout(timeoutId);
+    }
+  }, [error, dispatch]);
 
   return (
     <div

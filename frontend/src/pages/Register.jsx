@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../redux/actions/userActions";
+import { hideValidationError, register } from "../redux/actions/userActions";
 import Loading from "../utils/Loading";
 import Message from "../utils/Message";
 
@@ -14,6 +14,7 @@ const Register = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [registerMessage, setRegisterMessage] = useState(null);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -35,10 +36,45 @@ const Register = () => {
   };
 
   useEffect(() => {
-    if (userInfo?.token) {
-      navigate("/account/login");
+    if (userInfo?.created) {
+      // Show success message
+      setRegisterMessage(
+        "Your account has been created successfully! You will be redirected to login page shortly..."
+      );
+
+      setFullName("");
+      setEmail("");
+      setPassword("");
+
+      // Set a timeout to navigate after (5 seconds)
+      const timeoutId = setTimeout(() => {
+        navigate("/account/login");
+
+        // Clean up: clear the timeout when the component unmounts or when navigation occurs
+        return () => clearTimeout(timeoutId);
+      }, 5000);
     }
   }, [userInfo, navigate]);
+
+  useEffect(() => {
+    if (error) {
+      setFullName("");
+      setEmail("");
+      setPassword("");
+    }
+  }, [error]);
+
+  useEffect(() => {
+    if (error) {
+      // Set a timeout to dispatch hideValidationError after 2s
+      const timeoutId = setTimeout(() => {
+        dispatch(hideValidationError());
+      }, 2000);
+
+      // Cleanup the timeout if the component unmounts or if error changes before the timeout
+      return () => clearTimeout(timeoutId);
+    }
+  }, [error, dispatch]);
 
   return (
     <div
@@ -51,9 +87,18 @@ const Register = () => {
     >
       <form onSubmit={handleSubmit} className='bg-white p-8 rounded shadow-md'>
         <h2 className='text-2xl text-center font-semibold mb-6 text-maroon-red'>
+          <span className='font-bold'>My Purpose Story</span> <br />
           Sign Up
         </h2>
         {loading ? <Loading /> : error && <Message>{error}</Message>}
+        {registerMessage && (
+          <div
+            className='bg-blue-100 max-w-xs border border-blue-400 text-blue-700 px-4 py-3 mb-3 rounded relative'
+            role='alert'
+          >
+            {registerMessage}
+          </div>
+        )}
         <div className='mb-4'>
           <label
             htmlFor='name'

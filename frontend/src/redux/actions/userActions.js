@@ -1,4 +1,5 @@
 import {
+  hideError,
   loginFail,
   loginStart,
   loginSuccess,
@@ -19,7 +20,10 @@ import { API_ENDPOINT } from "../../Url";
 export const register = (details) => async (dispatch) => {
   dispatch(registerStart());
   try {
-    const { data } = await axios.post(`${API_ENDPOINT}/user/register`, details);
+    const { data } = await axios.post(
+      `${API_ENDPOINT}/user/mps/register`,
+      details
+    );
     dispatch(registerSuccess(data));
   } catch (err) {
     dispatch(
@@ -31,7 +35,10 @@ export const register = (details) => async (dispatch) => {
 export const login = (details) => async (dispatch) => {
   dispatch(loginStart());
   try {
-    const { data } = await axios.post(`${API_ENDPOINT}/user/login`, details);
+    const { data } = await axios.post(
+      `${API_ENDPOINT}/user/mps/login`,
+      details
+    );
     dispatch(loginSuccess(data));
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (err) {
@@ -44,7 +51,7 @@ export const resetPassword = (details) => async (dispatch) => {
   try {
     dispatch(resetPasswordStart());
 
-    await axios.post(`${API_ENDPOINT}/user/forgot/password`, details);
+    await axios.post(`${API_ENDPOINT}/user/mps/forgot/password`, details);
 
     dispatch(resetPasswordSuccess());
   } catch (err) {
@@ -58,7 +65,7 @@ export const updatePassword = (id, data) => async (dispatch) => {
   try {
     dispatch(updatePasswordStart());
 
-    await axios.put(`${API_ENDPOINT}/user/update/${id}/password`, data);
+    await axios.put(`${API_ENDPOINT}/user/mps/update/${id}/password`, data);
 
     dispatch(updatePasswordSuccess());
   } catch (err) {
@@ -79,17 +86,17 @@ export const verifySession = () => async (dispatch, getState) => {
       user: { userInfo },
     } = getState();
 
-    const { data } = await axios.post(
-      `${API_ENDPOINT}/user/auth/verification`,
-      {
-        token: userInfo.token,
-      }
-    );
-    console.log(data);
+    await axios.post(`${API_ENDPOINT}/user/auth/verification`, {
+      token: userInfo.token,
+    });
   } catch (err) {
     let error = err.response ? err.response.data.message : err.message;
     if (error === "Not authorized, token failed!") {
       dispatch(logout());
     }
   }
+};
+
+export const hideValidationError = () => (dispatch) => {
+  dispatch(hideError());
 };

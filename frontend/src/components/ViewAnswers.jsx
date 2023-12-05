@@ -23,19 +23,21 @@ const ViewAnswers = () => {
   };
   // Dummy answers for testing
   const answers = {
-    questionOne: item?.purpose,
-    questionTwo: item?.origin,
+    questionOne:
+      item?.purpose ||
+      "Please answer the questions and view the answers here...",
+    questionTwo: item?.origin || "",
     questionThree:
       item?.vissionAndMission?.vision +
-      item?.vissionAndMission?.mission +
-      item?.vissionAndMission?.impact,
+        item?.vissionAndMission?.mission +
+        item?.vissionAndMission?.impact || "",
     questionFour:
-      item?.valuesAndBeliefs?.values + item?.valuesAndBeliefs?.beliefs,
-    questionFive: item.impactAndBeneficiaries?.beneficiaries,
+      item?.valuesAndBeliefs?.values + item?.valuesAndBeliefs?.beliefs || "",
+    questionFive: item?.impactAndBeneficiaries?.beneficiaries || "",
     questionSix:
       item?.actionsAndCommitments?.actions +
-      item?.actionsAndCommitments?.examples +
-      item?.actionsAndCommitments?.dedication,
+        item?.actionsAndCommitments?.examples +
+        item?.actionsAndCommitments?.dedication || "",
   };
 
   useEffect(() => {
@@ -76,7 +78,7 @@ const ViewAnswers = () => {
   };
 
   return (
-    <div className='w-full flex flex-col items-center gap-5 justify-center py-12'>
+    <div className='w-full flex flex-col items-center gap-5 justify-center py-12 main-children'>
       {isModalOpen && <ShareModal closeModal={closeModal} />}
       <div className='mx-4 md:mx-0 md:w-3/5 bg-white p-4 md:p-8' id='printable'>
         <h2 className='text-2xl md:text-3xl text-center font-bold mb-3 text-maroon-red'>

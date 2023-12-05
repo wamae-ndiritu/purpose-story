@@ -17,7 +17,7 @@ function App() {
   const path = location.pathname;
 
   function AuthLayout() {
-    if (userInfo?.token && userInfo?.account_type === "MPS") {
+    if (userInfo?.token) {
       return <Outlet />;
     }
     return <Navigate to='/account/login' />;
